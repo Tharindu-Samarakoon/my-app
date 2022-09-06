@@ -45,7 +45,7 @@ const labRoutes = require('./routes/labs_c');
 app.use(labRoutes);
 
 //import payments routes
-const paymentRoutes = require("./routes/Payments_h");
+const paymentRoutes = require("./routes/Payments");
 //import payment route middleware
 app.use(paymentRoutes);
 

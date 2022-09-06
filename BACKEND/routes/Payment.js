@@ -1,5 +1,5 @@
 const express = require('express');
-const Payments =  require('../models/Payment_h');
+const Payments =  require('../models/payment');
 
 const router = express.Router();
 
