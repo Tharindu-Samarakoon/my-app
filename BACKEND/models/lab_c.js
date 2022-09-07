@@ -10,10 +10,6 @@ const labSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    contact:{
-        type:Number,
-        required:true
-    },
 
     age:{
         type:Number,
