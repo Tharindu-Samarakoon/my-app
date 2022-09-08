@@ -8,7 +8,7 @@
 /* header styles start */
 
 header {
-  background-color: #0c6980;
+  background-color: #0F072C;
   display: block;
   padding: 20px 0;
   height: auto;
@@ -104,7 +104,8 @@ background-color: rgba(116, 114, 114, 0.263);
 }
 
 .heading h1 {
-  color: #ffffff;
+  color: #FF3841;
+  font-family: Lexend;
   /* font-family: Arial Black; */
   font-size: 40px;
   margin-top: 0;
@@ -232,8 +233,6 @@ address{
   margin-left:20px;
   
 }
-
-
 
 
 .hstyle{
