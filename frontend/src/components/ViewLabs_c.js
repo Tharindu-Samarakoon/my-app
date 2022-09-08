@@ -63,9 +63,8 @@ export default class viewLabs extends Component {
         return(
           
             <div> 
-                <br></br><br></br>
-                <h1 align="center">Laboratory Tests Details</h1>
-                <br></br><br></br>
+                <h1 align="center"><b>Laboratory Tests Details</b></h1>
+                <br></br>
                 <div>
                 <div>
                 <div class="col-md-8">
@@ -81,11 +80,12 @@ export default class viewLabs extends Component {
                         <tr class="table-primary">
                             <th scope='col'>Patient Name</th>
                             <th scope='col'>Patient ID</th>
+                            <th scope= 'col'>Phone</th>
                             <th scope='col'>Age</th>
                             <th scope='col'>Gender</th>
                             <th scope='col'>Date</th>
                             <th scope='col'>Laboratory Test</th>
-                            <th scope='col'>Laboratory No</th>
+                            <th scope='col'>Lab No</th>
                             <th scope='col'>Laboratory Technologist</th>
                             <th scope='col'>Status</th>
                             <th scope='col'>Action</th>
@@ -103,11 +103,12 @@ export default class viewLabs extends Component {
                                         </a>
                                     </td>
                                     <td>{labs.id} </td>
+                                    <td>{labs.phone}</td>
                                     <td>{labs.age} </td>
                                     <td>{labs.gender} </td>
                                     <td>{labs.date.toString().substr(0 ,10)}</td>
                                     <td>{labs.labTest} </td>
-                                    <td>{labs.labNo} </td>
+                                    <td><center>{labs.labNo}</center> </td>
                                     <td>{labs.technologist} </td>
                                     <td>{labs.status} </td>
                                     <td>
