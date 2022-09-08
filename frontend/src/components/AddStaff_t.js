@@ -39,6 +39,8 @@ export default function AddStaff(){
 
         if((nicError=="Invalid NIC")||(numError=="Invalid number")||(suberror=="Maximum length is 10 Charactors")||(subberror=="Maximum length is 20 Charactors")){
             alert("Invalid Data");//Error
+        }else if(role === "Doctor" && specialization !== '') {
+
         }else{
         
             const newStaff={
@@ -125,11 +127,11 @@ export default function AddStaff(){
 
     //contact number validation
     function validateNumber(length,text){
-        const p1=/\+94[0-9]{9}/;
+        const p1=/[0-9]{10}/;
 
         numTxt=text;
         const mtch=numTxt.match(p1);
-        if((mtch)&&(length==12)){
+        if((mtch)&&(length==10)){
             setNumError("");
         }else{
             
@@ -176,7 +178,12 @@ export default function AddStaff(){
         <div>
            
             <Link to="/view">
-            <button type="stafflist" class="buttonv"style={{marginLeft:400}}>View Staff List</button>
+            <button type="stafflist" class="buttonv"style={{marginLeft:400}}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style={{marginRight: 9, marginBottom: 3}} fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+            </svg>
+        View Staff List</button>
             </Link>
         </div>
             
@@ -320,8 +327,16 @@ export default function AddStaff(){
                  </div>
 
                 <br></br>
-                <button type="submit" class="buttons"style={{marginLeft:90}}>Save</button>
-                <button type="clear"  class="buttonc"style={{marginLeft:90}} onClick={clearVal}>Clear </button>
+                <button type="submit" class="buttons"style={{marginLeft:90}}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style={{marginRight: 5}} fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                </svg>
+                    Save</button>
+                <button type="clear"  class="buttonc"style={{marginLeft:90}} onClick={clearVal}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style={{marginRight: 5}} fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+                    Clear </button>
             
             </form>
             <br></br> <br></br>
