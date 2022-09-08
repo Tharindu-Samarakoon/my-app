@@ -35,7 +35,7 @@ app.listen(PORT, ()=>{
 //import Appointments routes 
 const Appointments = require("./routes/appointments");
 
-//route Appointments middleware
+// //route Appointments middleware
 app.use("/Appointments",Appointments);
 
 //import lab routes
@@ -45,11 +45,11 @@ const labRoutes = require('./routes/labs_c');
 app.use(labRoutes);
 
 //import payments routes
-const paymentRoutes = require("./routes/Payments_h");
+const paymentRoutes = require("./routes/Payment");
 //import payment route middleware
 app.use(paymentRoutes);
 
 //import staff route
-const staffRouter = require("./routes/staffmembers_t.js");
+const staffRouter = require("./routes/staffmembers_t");
 //import staff middleware
 app.use("/staff",staffRouter);
