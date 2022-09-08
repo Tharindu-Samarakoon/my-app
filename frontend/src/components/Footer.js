@@ -30,31 +30,31 @@ function Footer(props) {
                 className="btn btn-social-icon btn-google bt"
                 href="http://google.com/+"
               >
-                <i className="fa fa-google-plus"></i>
+                <i className="fa fa-google-plus" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-facebook bt"
                 href="http://www.facebook.com/profile.php?id="
               >
-                <i className="fa fa-facebook"></i>
+                <i className="fa fa-facebook" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-linkedin bt"
                 href="http://www.linkedin.com/in/"
               >
-                <i className="fa fa-linkedin"></i>
+                <i className="fa fa-linkedin" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-twitter bt"
                 href="http://twitter.com/"
               >
-                <i className="fa fa-twitter" color="white"></i>
+                <i className="fa fa-twitter" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-google bt"
                 href="http://youtube.com/"
               >
-                <i className="fa fa-youtube"></i>
+                <i className="fa fa-youtube" style={{color: 'white'}}></i>
               </a>
             </div>
             <br></br>
