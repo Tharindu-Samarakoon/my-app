@@ -87,6 +87,7 @@ export default class ViewStaff extends Component {
                 
                     <thead>
                         <tr class='table-primary'>
+                            <th scope="col" style={{width: 85}}></th>
                             <th style={{ width:100}} scope="col">First Name</th>
                             <th scope="col"> Last Name</th>
                             <th scope="col">Address</th>
@@ -106,6 +107,12 @@ export default class ViewStaff extends Component {
                         {this.state.staff.map(staffmem => (  
 
                             <tr>
+                                <td scope="row">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                                </td>
                                 <td scope="row">{staffmem.firstName}</td>
                                 <td scope="row"><div>{staffmem.lasttName}</div></td>
                                 <td scope="row"><div>{staffmem.address}</div></td>
