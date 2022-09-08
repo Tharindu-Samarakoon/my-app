@@ -39,8 +39,8 @@ export default function AddStaff(){
 
         if((nicError=="Invalid NIC")||(numError=="Invalid number")||(suberror=="Maximum length is 10 Charactors")||(subberror=="Maximum length is 20 Charactors")){
             alert("Invalid Data");//Error
-        }else if(role === "Doctor" && specialization !== '') {
-
+        }else if(role !== "Doctor" && specialization !== '') {
+            alert("Only Doctors can have a specialiazation")
         }else{
         
             const newStaff={
@@ -59,6 +59,7 @@ export default function AddStaff(){
 
             axios.post("http://localhost:8070/staff/add",newStaff).then(()=>{
                 alert("staff added")
+                window.location = '/view'
                 
             }).catch((err)=>{
                 alert(err)

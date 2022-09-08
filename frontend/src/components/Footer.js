@@ -23,7 +23,7 @@ function Footer(props) {
           <div className="col-7 col-sm-4 text-center">
            
           </div>
-          <div className="col-12 col-sm-4 align-self-center">
+          <div className="col-12 col-sm-4 align-self-center" style={{color: 'white'}}>
           <p style={{marginLeft:200}}><b>Follow Us: </b></p>
             <div className="text-center" style={{marginLeft:115}}>
               <a
@@ -48,7 +48,7 @@ function Footer(props) {
                 className="btn btn-social-icon btn-twitter bt"
                 href="http://twitter.com/"
               >
-                <i className="fa fa-twitter"></i>
+                <i className="fa fa-twitter" color="white"></i>
               </a>
               <a
                 className="btn btn-social-icon btn-google bt"

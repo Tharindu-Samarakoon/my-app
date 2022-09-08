@@ -150,20 +150,21 @@ hr {
 }
 
 .footer{
-  background: #09738d;
+  background: #0F072C;
   margin:0px auto;
   padding: 20px 0px 20px 0px;
+  color: #fff;
 }
 
 .jumbotron {
   padding:70px 30px 70px 30px;
   margin:0px auto;
-  background: #2B3856 ;
+  background: #ffffff ;
   color:floralwhite;
 }
 
 .navclr{
-  background-color: #282c34;
+  background-color: #ffffff;
   font-family:Helvetica;
 }
 
