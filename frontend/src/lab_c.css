@@ -6,9 +6,9 @@
 
     background: rgb(254, 255, 255);
 
-    width: 800px;
+    width: 600px;
 
-    height: 1190px;
+    height: 1150px;
 
     border-radius: 5px;
 
@@ -42,21 +42,23 @@ body {
 }
 
 .search input {
-    height: 60px;
+    height: 40px;
     width:300px;
     text-indent: 25px;
-    border: 2px solid #554ed5
+    border: 1px solid #b4b4b4
 }
 
 .search input:focus {
-    box-shadow: none;
-    border: 2px solid blue
+    box-shadow: #b4b4b4;
+    border: 1px solid blue
 }
+
 
 .search .fa-search {
     position: absolute;
-    top: 20px;
-    left: 16px
+    color: #c5c3c3c6;
+    top: 13px;
+    left: 14px
 }
 
 .search button {
