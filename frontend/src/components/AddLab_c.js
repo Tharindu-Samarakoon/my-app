@@ -145,13 +145,19 @@ export default class AddLab_c extends Component {
 
     render(){
         return(
-            <div  style={{backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",backgroundSize:'cover',height:'1300px',backgroundRepeat:'no-repeat', backgroundSize:'cover',backgroundPosition:'center',backgroundAttachment:'fixed'
+            <div  style={{backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",
+            backgroundSize:'cover',
+            height:'1300px',
+            backgroundRepeat:'no-repeat', 
+            backgroundSize:'cover',
+            backgroundPosition:'center',
+            backgroundAttachment:'fixed'
             }} >
             <div>
             <br></br>
 
             <Link to="/labs" className="results">
-            <button className="btn btn-primary" style={{marginLeft:890,marginBottom:20}}>View All Lab Tests</button>  
+            <button className="btn btn-primary" style={{marginLeft:890,marginBottom:20}}><i class="fas fa-list"></i>&nbsp;View All Lab Tests</button>  
             </Link>
             
             <div className='container' align='center'>
@@ -307,14 +313,34 @@ export default class AddLab_c extends Component {
                         </select>
                 </div>
 
-
-                <button className='btn btn-success' type="submit" style={{marginTop:'25px',marginLeft:'240px',height: '50px', width : '100px'}} onClick={this.onSubmit}>
+                <center>
+                <button className='btn btn-success' type="submit" style={{marginTop:'25px',height: '50px', width : '100px'}} onClick={this.onSubmit}><i class="fas fa-save"></i>&nbsp;
                 &nbsp;Save
                 </button>
-                <button className='btn btn-danger' type="submit" style={{marginTop:'25px',marginLeft:'120px',height: '50px', width : '100px'}}>
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+                <button className='btn btn-danger' type="submit" onClick ={(e)=>{
+                     this.setState(
+                        {
+                            name:"",
+                            id:"",
+                            age:"",
+                            gender:"",
+                            date:"",
+                            labTest:"",
+                            labNo:"",
+                            technologist:"",
+                            status:"",
+                            nameError:"",
+                            idError:"",
+                            dateError:"",
+                            labTestError:""
+    
+                        })
+                }}style={{marginTop:'25px',height: '50px', width : '100px'}}><i class="fas fa-rotate-right"></i>
                 &nbsp;Clear
                 </button>
-        
+                </center>
             </form>
             </div>
             <br></br>
