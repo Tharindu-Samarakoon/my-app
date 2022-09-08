@@ -63,30 +63,15 @@ export default class viewLabs extends Component {
         return(
           
             <div> 
-                
-                <h1 align="center"><b>Laboratory Tests Details</b></h1>
                 <br></br><br></br>
-                {/* <div>
+                <h1 align="center">Laboratory Tests Details</h1>
+                <br></br><br></br>
+                <div>
                 <div>
                 <div class="col-md-8">
                 <div class="search"> <i class="fa fa-search"></i> <input type="text" class="form-control" placeholder="Enter Patient ID Here" onChange={this.handleSearchArea}/></div>
                 </div>
-                
-                </div> 
-                </div>*/}
-                <div className="row">
-                    &nbsp;
-                    <div className="col-lg-3 mt-2 mb-2" >
-                    <div class="search"> <i class="fa fa-search" style={{color:'#8d8d8f'}}></i> 
-                        <input className = "form-control"
-                        type="search"
-                        placeholder="Search..."
-                        name="searchappointments"
-                        onChange={this.handleSearchArea}
-                        >
-                        </input>
-                        </div>
-                    </div>
+                </div>
                 </div>
                 <br></br>
                 <hr></hr>
@@ -94,10 +79,8 @@ export default class viewLabs extends Component {
                 <table className="table table-striped">
                     <thead>
                         <tr class="table-primary">
-                            <th></th>
-                            <th scope='col' >Patient Name</th>
-                            <th scope='col' >Patient ID</th>
-                            <th scope='col' >Contact No</th>
+                            <th scope='col'>Patient Name</th>
+                            <th scope='col'>Patient ID</th>
                             <th scope='col'>Age</th>
                             <th scope='col'>Gender</th>
                             <th scope='col'>Date</th>
@@ -113,22 +96,20 @@ export default class viewLabs extends Component {
                         {this.state.labs.map((labs,index) => (
 
                             <tr>
-                                <th  scope = "row"  style={{textAlign:'center'}}>{index+1} </th>
-                
+                                
                                     <td>
-                                        <a href={'/lab/${labs._id}'} style={{textAlign:'center', textDecoration:'none',color:'black'}}>
+                                        <a href={'/lab/${labs._id}'} style={{textDecoration:'none',color:'black'}}>
                                         {labs.name}
                                         </a>
                                     </td>
-                                    <td style={{textAlign:'center'}}>{labs.id} </td>
-                                    <td style={{textAlign:'center'}}>{labs.contact} </td>
-                                    <td style={{textAlign:'center'}}>{labs.age} </td>
-                                    <td >{labs.gender} </td>
-                                    <td style={{textAlign:'center'}}>{labs.date.toString().substr(0 ,10)}</td>
-                                    <td >{labs.labTest} </td>
-                                    <td style={{textAlign:'center'}}>{labs.labNo} </td>
-                                    <td >{labs.technologist} </td>
-                                    <td >{labs.status} </td>
+                                    <td>{labs.id} </td>
+                                    <td>{labs.age} </td>
+                                    <td>{labs.gender} </td>
+                                    <td>{labs.date.toString().substr(0 ,10)}</td>
+                                    <td>{labs.labTest} </td>
+                                    <td>{labs.labNo} </td>
+                                    <td>{labs.technologist} </td>
+                                    <td>{labs.status} </td>
                                     <td>
                                         <a className="btn btn-warning" href={`/editLab/${labs._id}`}>
                                             <i className="fas fa-edit"></i>&nbsp;Edit

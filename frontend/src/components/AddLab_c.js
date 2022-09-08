@@ -9,7 +9,6 @@ export default class AddLab_c extends Component {
         this.state={
             name:"",
             id:"",
-            contact:"",
             age:"",
             gender:"",
             date:"",
@@ -41,7 +40,6 @@ export default class AddLab_c extends Component {
 
         let nameError="";
         let idError="";
-        let contactError="";
         let dateError="";
         let labTestError="";
   
@@ -52,11 +50,6 @@ export default class AddLab_c extends Component {
         if(!this.state.id){
             idError = 'Please Fill the id field '
           }
-
-          var contact= /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-      if(!this.state.contact.match(contact)){
-          contactError='Phone Number is Required and Fill Correct Number Format';
-      }
 
         if(!this.state.date){
             dateError = 'Please Fill the date field '
@@ -83,12 +76,11 @@ export default class AddLab_c extends Component {
 
         const isValid = this.validate();
 
-        const{name,id,contact,age,gender,date,labTest,labNo,technologist,status} = this.state;
+        const{name,id,age,gender,date,labTest,labNo,technologist,status} = this.state;
 
         const data = {
             name:name,
             id:id,
-            contact:contact,
             age:age,
             gender:gender,
             date:date,
@@ -112,7 +104,6 @@ export default class AddLab_c extends Component {
                     {
                         name:"",
                         id:"",
-                        contact:"",
                         age:"",
                         gender:"",
                         date:"",
@@ -122,7 +113,6 @@ export default class AddLab_c extends Component {
                         status:"",
                         nameError:"",
                         idError:"",
-                        contactError:"",
                         dateError:"",
                         labTestError:""
 
@@ -166,12 +156,12 @@ export default class AddLab_c extends Component {
             
             <div className='container' align='center'>
             <form className="formc" >
-                <div className='form-group' style={{marginBottom:'10px'}}>
+                <div className='form-group' style={{marginBottom:'15px'}}>
                 <h1 className='h3 mb-3 font-weight-normal'style={{textAlign:"center"}}>Request Laboratory Test</h1>
                 <hr></hr>
                 <br></br>
                 
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Patient Name </label><label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient Name </label><label style={{color:"red"}}> &nbsp;* </label>
                     <input type="text"
                     className="form-control"
                     name="name"
@@ -185,8 +175,8 @@ export default class AddLab_c extends Component {
                     </div>
                 </div>
                 <br></br>
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Patient ID</label> <label style={{color:"red"}}> &nbsp;* </label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient ID</label> <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="number"
                     className="form-control"
                     name="id"
@@ -199,27 +189,11 @@ export default class AddLab_c extends Component {
                            {this.state.idError}
                     </div>
                 </div>
-                <br></br>
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Contact Number</label> <label style={{color:"red"}}> &nbsp;* </label>
-                    <input type="number"
-                    className="form-control"
-                    name="contact"
-                    placeholder="Eg: 077 4204204"
-                    value={this.state.id}
-                    onChange={this.handleInputChange}
-                    required/>
-
-                    <div style={{fontSize:12 ,color:"red"}}>       
-                           {this.state.idError}
-                    </div>
-                </div>
-
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Age</label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Age</label>
                     <input type="number"
                     className="form-control"
                     name="age"
@@ -231,10 +205,10 @@ export default class AddLab_c extends Component {
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}
+                <div className='form-group' style={{marginBottom:'15px'}}
                      value={this.state.gender}
                     onChange={this.handleInputChange}>
-                        <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Gender</label>
+                        <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Gender</label>
                         <br></br>
                         <input type="radio" value="Male" name="gender" /> Male &nbsp; &nbsp;
                         <input type="radio" value="Female" name="gender" /> Female
@@ -243,8 +217,8 @@ export default class AddLab_c extends Component {
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Date</label> <label style={{color:"red"}}> &nbsp;* </label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Date</label> <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="date"
                     className="form-control"
                     name="date"
@@ -261,8 +235,8 @@ export default class AddLab_c extends Component {
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Laboratory Test</label> <label style={{color:"red"}}> &nbsp;* </label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Test</label> <label style={{color:"red"}}> &nbsp;* </label>
                     <select class="form-select" name="labTest"
                     placeholder=" Select   "
                     value={this.state.labTest}
@@ -285,8 +259,8 @@ export default class AddLab_c extends Component {
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Laboratory No</label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory No</label>
                     <select class="form-select" name="labNo"
                          placeholder=" Select   "
                          value={this.state.labNo}
@@ -302,8 +276,8 @@ export default class AddLab_c extends Component {
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Laboratory Technologist</label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Technologist</label>
                     <select class="form-select" 
                         placeholder=" Select   "
                         name="technologist"
@@ -320,8 +294,8 @@ export default class AddLab_c extends Component {
 
                 <br></br>
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Status</label>
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Status</label>
                         <select class="form-select" 
                             placeholder=" Select   "
                             name="status"
