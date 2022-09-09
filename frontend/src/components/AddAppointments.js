@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import background from "../background_m/appoiintment_image.jpg";
-
+//import background from "../background_m/appoiintment_image.jpg";
+import background from "../background_m/background1.jpg";
 
 export default function AddAppointments  ()  {
 
@@ -140,18 +140,18 @@ export default function AddAppointments  ()  {
 
   return(
 
-    <div style={{backgroundImage: `url(${background})`, backgroundRepeat:'no-repeat', backgroundSize:'cover',backgroundPosition:'center',backgroundAttachment:'fixed'}}>
+    <div style={{backgroundImage: `url(${background})`, backgroundRepeat:'no-repeat', backgroundSize:'cover',backgroundPosition:'center', backgroundAttachment:'fixed'}}>
     
     <div className ="container" >
-    <br></br>
+    <br></br><br/>
 
     <Link to="/viewAppointments" className="">                
-        <button className="btn btn-primary" type='submit' style={{marginLeft:'545px', marginBottom:'30px'}}> View All Appointments </button>
+        <button className="btn btn-primary" type='submit' style={{marginLeft:'580px', marginBottom:'30px'}}> View All Appointments </button>
     </Link>
       
-    <form  className="form1" style={{backgroundColor:'#ffff',padding:'30px 30px',width:'650px',marginLeft:'80px '}}  onSubmit={sendData} >
+    <form  className="form1" style={{backgroundColor:'#fafafa',padding:'30px 30px',width:'850px',marginLeft:'250px '}}  onSubmit={sendData} >
 
-      <h1 style={{textAlign:'center'}}>Add an Appointment </h1> <hr></hr>
+      <h1 style={{textAlign:'center'}}>Add an Appointment </h1> <br/><hr></hr><br/><br/>
 
       <div className="form-group row g-3">
           <label htmlFor="firstName" className="col-sm-2 col-form-label"><b>Name</b></label>
@@ -167,7 +167,7 @@ export default function AddAppointments  ()  {
 
       </div>
        
-      <br></br>
+      <br></br><br/>
 
       <div className="form-group row g-3">
           <label htmlFor="nic" className="col-sm-2 col-form-label"><b>NIC</b></label>
@@ -179,7 +179,7 @@ export default function AddAppointments  ()  {
 
       </div>
 
-      <br></br>
+      <br></br><br/>
 
       <div className="form-group row g-3">
         <label htmlFor="age" className="col-sm-2 col-form-label">  
@@ -192,7 +192,7 @@ export default function AddAppointments  ()  {
       </div>
       
     
-      <br></br>
+      <br></br><br/>
         <div className="form-group row g-3 ">
           <label htmlFor="gender"  className="col-sm-2 col-form-label"><b>Gender</b></label>
               <div className="col-auto">
@@ -217,7 +217,7 @@ export default function AddAppointments  ()  {
               </div>
         </div>
 
-        <br></br>
+        <br></br><br/>
         
         
         <div className="form-group row g-3">
@@ -228,12 +228,12 @@ export default function AddAppointments  ()  {
                 </div>
 
                 <div className="col-auto" >
-                <input className="form-control" type="tel" name='contact_no' id="contact_no" placeholder="ex:- 76895243 "  style={{width:'90%'}}
+                <input className="form-control" type="tel" name='contact_no' id="contact_no" placeholder="ex:- 779814922 "  style={{width:'90%'}}
                     onInput={validatePhone} onChange={(e) =>{setContact_no(e.target.value);}} required  />
                 <span style={{fontWeight: 'bold',color: 'red'}}> {phoneError} </span></div>
         </div>
 
-        <br></br>
+        <br></br><br/>
 
         <div className="form-group row g-3">
             <label htmlFor="doctor" className="col-sm-2 col-form-label"><b>Doctor</b></label>
@@ -251,7 +251,7 @@ export default function AddAppointments  ()  {
             </div>
         </div>
 
-        <br></br>
+        <br></br><br/>
 
         <div className="form-group row g-3">
             <label htmlFor="date" className="col-sm-2 col-form-label"><b>Date</b></label>
@@ -288,11 +288,11 @@ export default function AddAppointments  ()  {
         </div>
 
         <br></br>
-        <br></br>
+        <br></br><br/>
 
-      <button className="btn btn-success" type='submit' style={{marginLeft:'20%',width:'100px',height:'45px'}} >Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button className="btn btn-success" type='submit' style={{marginLeft:'18%',width:'150px',height:'45px'}} >Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-      <button className="btn btn-danger" onClick={clearInput} type= 'reset' style={{marginLeft:'22%',width:'100px',height:'45px'}}>Clear</button>
+      <button className="btn btn-danger" onClick={clearInput} type= 'reset' style={{marginLeft:'22%',width:'150px',height:'45px'}}>Clear</button>
     
     </form>
 
