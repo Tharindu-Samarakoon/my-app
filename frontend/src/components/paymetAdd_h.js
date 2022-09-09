@@ -172,7 +172,7 @@ datelimit = () =>{
         
   return (
       
-    <div style={{backgroundImage:"url(http://localhost:3000/paymentImage/bg1.png)" ,
+    <div style={{backgroundImage:"url(http://localhost:3000/paymentImage/bg11.png)" ,
     
     backgroundRepeat:'no-repeat', 
     backgroundSize:'cover',
