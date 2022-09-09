@@ -23,38 +23,38 @@ function Footer(props) {
           <div className="col-7 col-sm-4 text-center">
            
           </div>
-          <div className="col-12 col-sm-4 align-self-center">
+          <div className="col-12 col-sm-4 align-self-center" style={{color: 'white'}}>
           <p style={{marginLeft:200}}><b>Follow Us: </b></p>
             <div className="text-center" style={{marginLeft:115}}>
               <a
                 className="btn btn-social-icon btn-google bt"
                 href="http://google.com/+"
               >
-                <i className="fa fa-google-plus"></i>
+                <i className="fa fa-google-plus" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-facebook bt"
                 href="http://www.facebook.com/profile.php?id="
               >
-                <i className="fa fa-facebook"></i>
+                <i className="fa fa-facebook" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-linkedin bt"
                 href="http://www.linkedin.com/in/"
               >
-                <i className="fa fa-linkedin"></i>
+                <i className="fa fa-linkedin" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-twitter bt"
                 href="http://twitter.com/"
               >
-                <i className="fa fa-twitter"></i>
+                <i className="fa fa-twitter" style={{color: 'white'}}></i>
               </a>
               <a
                 className="btn btn-social-icon btn-google bt"
                 href="http://youtube.com/"
               >
-                <i className="fa fa-youtube"></i>
+                <i className="fa fa-youtube" style={{color: 'white'}}></i>
               </a>
             </div>
             <br></br>

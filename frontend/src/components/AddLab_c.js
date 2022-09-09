@@ -9,6 +9,7 @@ export default class AddLab_c extends Component {
         this.state={
             name:"",
             id:"",
+            phone:"",
             age:"",
             gender:"",
             date:"",
@@ -18,8 +19,13 @@ export default class AddLab_c extends Component {
             status:"",
             nameError:"",
             idError:"",
+            phoneError:"",
+            ageError:"",
             dateError:"",
-            labTestError:""
+            labTestError:"",
+            labNoError:"",
+            technologistError:"",
+            statusError:""
 
         }
     }
@@ -40,8 +46,14 @@ export default class AddLab_c extends Component {
 
         let nameError="";
         let idError="";
+        let phoneError="";
+        let ageError="";
         let dateError="";
         let labTestError="";
+        let labNoError="";
+        let technologistError="";
+        let statusError="";
+
   
         if(!this.state.name){
           nameError = 'Please Fill the name field'
@@ -51,6 +63,15 @@ export default class AddLab_c extends Component {
             idError = 'Please Fill the id field '
           }
 
+        var phone= /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        if(!this.state.phone.match(phone)){
+            phoneError='Phone Number is Required and Fill Correct Number Format';
+        }
+
+        if(!this.state.age){
+            ageError = 'Please Fill the age field'
+          }
+
         if(!this.state.date){
             dateError = 'Please Fill the date field '
           }
@@ -58,9 +79,21 @@ export default class AddLab_c extends Component {
         if(!this.state.labTest){
             labTestError = 'Please Fill the test field '
           }
+        
+        if(!this.state.labNo){
+            labNoError = 'Please Fill the lab no field'
+        }
 
-        if(nameError||idError||dateError||labTestError){
-            this.setState({nameError,idError,dateError,labTestError});
+        if(!this.state.technologist){
+            technologistError = 'Please fill the technologist field'
+        }
+
+        if(!this.state.status){
+            statusError = 'Please select the status'
+        }
+
+        if(nameError||idError||phoneError||ageError|| dateError||labTestError||labNoError||technologistError||statusError){
+            this.setState({nameError,idError,phoneError,ageError,dateError,labTestError,labNoError,technologistError,statusError});
             return false;
           }
           
@@ -76,11 +109,12 @@ export default class AddLab_c extends Component {
 
         const isValid = this.validate();
 
-        const{name,id,age,gender,date,labTest,labNo,technologist,status} = this.state;
+        const{name,id,phone,age,gender,date,labTest,labNo,technologist,status} = this.state;
 
         const data = {
             name:name,
             id:id,
+            phone:phone,
             age:age,
             gender:gender,
             date:date,
@@ -104,6 +138,7 @@ export default class AddLab_c extends Component {
                     {
                         name:"",
                         id:"",
+                        phone:"",
                         age:"",
                         gender:"",
                         date:"",
@@ -113,8 +148,13 @@ export default class AddLab_c extends Component {
                         status:"",
                         nameError:"",
                         idError:"",
+                        phoneError:"",
+                        ageError:"",
                         dateError:"",
-                        labTestError:""
+                        labTestError:"",
+                        labNoError:"",
+                        technologistError:"",
+                        statusError:""
 
                     }
                 )
@@ -145,13 +185,19 @@ export default class AddLab_c extends Component {
 
     render(){
         return(
-            <div  style={{backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",backgroundSize:'cover',height:'1300px',backgroundRepeat:'no-repeat', backgroundSize:'cover',backgroundPosition:'center',backgroundAttachment:'fixed'
+            <div  style={{backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",
+            backgroundSize:'cover',
+            height:'1300px',
+            backgroundRepeat:'no-repeat', 
+            backgroundSize:'cover',
+            backgroundPosition:'center',
+            backgroundAttachment:'fixed'
             }} >
             <div>
             <br></br>
 
             <Link to="/labs" className="results">
-            <button className="btn btn-primary" style={{marginLeft:890,marginBottom:20}}>View All Lab Tests</button>  
+            <button className="btn btn-primary" style={{marginLeft:890,marginBottom:20}}><i class="fas fa-list"></i>&nbsp;View All Lab Tests</button>  
             </Link>
             
             <div className='container' align='center'>
@@ -159,9 +205,9 @@ export default class AddLab_c extends Component {
                 <div className='form-group' style={{marginBottom:'15px'}}>
                 <h1 className='h3 mb-3 font-weight-normal'style={{textAlign:"center"}}>Request Laboratory Test</h1>
                 <hr></hr>
-                <br></br>
                 
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient Name </label><label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient Name </label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="text"
                     className="form-control"
                     name="name"
@@ -174,9 +220,10 @@ export default class AddLab_c extends Component {
                            {this.state.nameError}
                     </div>
                 </div>
-                <br></br>
+                
                 <div className='form-group' style={{marginBottom:'15px'}}>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient ID</label> <label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient ID</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="number"
                     className="form-control"
                     name="id"
@@ -190,10 +237,29 @@ export default class AddLab_c extends Component {
                     </div>
                 </div>
 
-                <br></br>
+
+
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Phone</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
+                    <input type="text"
+                    className="form-control"
+                    name="phone"
+                    placeholder="Enter Phone Number (Eg: 076 9898948) "
+                    value={this.state.phone}
+                    onChange={this.handleInputChange}
+                    required/>
+
+                    <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.phoneError}
+                    </div>
+                </div>
+
+               
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Age</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="number"
                     className="form-control"
                     name="age"
@@ -201,24 +267,29 @@ export default class AddLab_c extends Component {
                     value={this.state.age}
                     onChange={this.handleInputChange}
                     required/>
+                    <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.ageError}
+                           </div>
                 </div>
 
-                <br></br>
+               
 
                 <div className='form-group' style={{marginBottom:'15px'}}
                      value={this.state.gender}
                     onChange={this.handleInputChange}>
                         <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Gender</label>
+                        <label style={{color:"red"}}> &nbsp;* </label>
                         <br></br>
-                        <input type="radio" value="Male" name="gender" /> Male &nbsp; &nbsp;
+                        <input type="radio" value="Male" name="gender" checked/> Male &nbsp; &nbsp;
                         <input type="radio" value="Female" name="gender" /> Female
                    
                 </div>
 
-                <br></br>
+                
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Date</label> <label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Date</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="date"
                     className="form-control"
                     name="date"
@@ -233,10 +304,11 @@ export default class AddLab_c extends Component {
                     </div>
                 </div>
 
-                <br></br>
+                
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Test</label> <label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Test</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <select class="form-select" name="labTest"
                     placeholder=" Select   "
                     value={this.state.labTest}
@@ -257,10 +329,11 @@ export default class AddLab_c extends Component {
                     </div>
                 </div>
 
-                <br></br>
+                
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory No</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <select class="form-select" name="labNo"
                          placeholder=" Select   "
                          value={this.state.labNo}
@@ -272,12 +345,16 @@ export default class AddLab_c extends Component {
                                 <option> 4 </option>
 
                     </select>
+                    <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.labNoError}
+                    </div>
                 </div>
 
-                <br></br>
+                
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Technologist</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <select class="form-select" 
                         placeholder=" Select   "
                         name="technologist"
@@ -290,31 +367,67 @@ export default class AddLab_c extends Component {
                             <option> Mr. Dammika Siriwardana </option>
 
                     </select>
+                    <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.technologistError}
+                    </div>
                 </div>
 
-                <br></br>
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Status</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                         <select class="form-select" 
                             placeholder=" Select   "
                             name="status"
                             value={this.state.status}
                             onChange={this.handleInputChange}>
                                 <option> Select </option>
+                                <option>Completed</option>
                                 <option> Pending </option>
                    
                         </select>
+                        <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.statusError}
+                    </div>
                 </div>
 
-
-                <button className='btn btn-success' type="submit" style={{marginTop:'25px',marginLeft:'240px',height: '50px', width : '100px'}} onClick={this.onSubmit}>
-                &nbsp;Save
+                <center>
+                <button className='btn btn-success' type="submit" style={{marginTop:'25px',height: '50px', width : '100px'}}
+                 onClick={this.onSubmit}>
+                <i class="fas fa-save"></i>&nbsp;&nbsp;Save
                 </button>
-                <button className='btn btn-danger' type="submit" style={{marginTop:'25px',marginLeft:'120px',height: '50px', width : '100px'}}>
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+                <button className='btn btn-danger' type="submit" onClick ={(e)=>{
+                     this.setState(
+                        {
+                            
+                        name:"",
+                        id:"",
+                        phone:"",
+                        age:"",
+                        gender:"",
+                        date:"",
+                        labTest:"",
+                        labNo:"",
+                        technologist:"",
+                        status:"",
+                        nameError:"",
+                        idError:"",
+                        phoneError:"",
+                        ageError:"",
+                        dateError:"",
+                        labTestError:"",
+                        labNoError:"",
+                        technologistError:"",
+                        statusError:""
+
+    
+                        })
+                }}style={{marginTop:'25px',height: '50px', width : '100px'}}><i class="fas fa-rotate-right"></i>
                 &nbsp;Clear
                 </button>
-        
+                </center>
             </form>
             </div>
             <br></br>
