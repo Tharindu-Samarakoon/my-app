@@ -16,19 +16,15 @@ class Header extends Component {
                 <img src="/homeImage/logo2.png" alt="Life Care Medical Center" id="logo-img"/>
             </div>
             <div class="heading">
-                <h1 style={{fontSize:"80px",marginLeft:100}}><b> Life Care </b></h1> 
+                <h1 style={{fontSize:"80px",marginLeft:100}}><b> MultiClinic + </b></h1> 
                 <p style={{marginLeft:200 , color:"white",fontSize:"20px"}}><b> Medical Center</b> </p>
             </div>
 
             
 
         </div>
-        <div className="row me-3">
-            <div className="col d-flex justify-content-end">
-            <i class="fa fa-user fa-2x" aria-hidden="true"> </i> &nbsp;&nbsp;
+        <i class="fa fa-user fa-2x" aria-hidden="true" style={{marginLeft:1400}}> </i> &nbsp;&nbsp;
         <button type="button" class="btn btn-light" style={{marginBottom:20}}> Login </button>
-            </div>
-        </div>
 
      
         </header>
