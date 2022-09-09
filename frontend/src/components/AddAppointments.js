@@ -228,7 +228,7 @@ export default function AddAppointments  ()  {
                 </div>
 
                 <div className="col-auto" >
-                <input className="form-control" type="tel" name='contact_no' id="contact_no" placeholder="ex:- 76895243 "  style={{width:'90%'}}
+                <input className="form-control" type="tel" name='contact_no' id="contact_no" placeholder="ex:- 779814922 "  style={{width:'90%'}}
                     onInput={validatePhone} onChange={(e) =>{setContact_no(e.target.value);}} required  />
                 <span style={{fontWeight: 'bold',color: 'red'}}> {phoneError} </span></div>
         </div>
