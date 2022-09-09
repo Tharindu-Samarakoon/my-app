@@ -16,7 +16,7 @@ class Header extends Component {
                 <img src="/homeImage/logo2.png" alt="Life Care Medical Center" id="logo-img"/>
             </div>
             <div class="heading">
-                <h1 style={{fontSize:"80px",marginLeft:100}}><b> Life Care </b></h1> 
+                <h1 style={{fontSize:"80px",marginLeft:100}}><b> MultiClinic + </b></h1> 
                 <p style={{marginLeft:200 , color:"white",fontSize:"20px"}}><b> Medical Center</b> </p>
             </div>
 
