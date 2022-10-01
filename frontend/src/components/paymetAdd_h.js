@@ -172,7 +172,7 @@ datelimit = () =>{
         
   return (
       
-    <div style={{backgroundImage:"url(http://localhost:3000/paymentImage/bg1.png)" ,
+    <div style={{backgroundImage:"url(http://localhost:3000/paymentImage/bg11.png)" ,
     
     backgroundRepeat:'no-repeat', 
     backgroundSize:'cover',
@@ -185,7 +185,7 @@ datelimit = () =>{
 
     <div>
          <Link to="/viewpayment">   
-                    <button className="buttonview" style={{marginLeft:813, marginBottom:30}}> View Payment Details</button>
+                    <button className="buttonview" style={{marginLeft:813, marginBottom:30}}><i class="fas fa-list"></i>&nbsp;View Payment Details</button>
          </Link>
     </div>
 
@@ -373,7 +373,7 @@ datelimit = () =>{
                         
               <button className='btn btn-success' type="submit" style={{marginTop:'30px',marginLeft:'240px',height: '50px', width : '100px'}} onClick={this.onSubmit}>
 
-                &nbsp;Save
+              <i class="fas fa-save"></i>&nbsp;&nbsp;Save
 
               </button>
 
@@ -396,7 +396,8 @@ datelimit = () =>{
                        
                             
                       })
-                    }}style={{marginTop:'30px',marginLeft:'70px',height: '50px', width : '100px'}}>
+                    }}style={{marginTop:'30px',marginLeft:'70px',height: '50px', width : '100px'}}><i class="fas fa-rotate-right"></i>
+  
 
                 &nbsp;Clear
 
