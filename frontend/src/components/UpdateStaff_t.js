@@ -64,6 +64,8 @@ export default function Update(){
 
         if((nicError=="Invalid NIC")||(numError=="Invalid number")||(suberror=="Maximum length is 10 Charactors")||(subberror=="Maximum length is 20 Charactors")){
             alert("Invalid Data");//Error
+        }else if(role !== "Doctor" && specialization !== '' && specialization !== 'General') {
+            alert("Only Doctors can have a specialiazation")
         }else{
         
             const newStaff={
@@ -82,6 +84,7 @@ export default function Update(){
 
             axios.put(`http://localhost:8070/staff/update/${id}`,newStaff).then(()=>{
                 alert("staff details successfully updated")
+                window.location = '/view'
                 
             }).catch((err)=>{
                 alert(err)
@@ -149,11 +152,11 @@ export default function Update(){
 
     //contact number validation
     function validateNumber(length,text){
-        const p1=/\+94[0-9]{9}/;
+        const p1=/[0-9]{10}/;
 
         numTxt=text;
         const mtch=numTxt.match(p1);
-        if((mtch)&&(length==12)){
+        if((mtch)&&(length==10)){
             setNumError("");
         }else{
             
