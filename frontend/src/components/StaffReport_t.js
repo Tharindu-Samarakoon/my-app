@@ -10,10 +10,86 @@ export class StaffReport extends React.PureComponent {
         super(props);
 
         this.state = {
-            staff: []
+            staff: [],
+            roleFilter: '',
+            specializationFilter: '',
+            genderFilter: '',
+            size: 0
         }
     }
 
+    specializations = [
+        {
+          value: 'General',
+          label: 'General'
+        },
+        {
+          value: 'Urologist',
+          label: 'Urologist'
+        },
+        {
+          value: 'Dermatologists',
+          label: 'Dermatologists'
+        },
+        {
+          value: 'Neurologist',
+          label: 'Neurologist'
+        },
+        {
+            value: 'Physiotherapist',
+            label: 'Physiotherapist'
+        },
+        {
+            value: 'Phsychiatrists',
+            label: 'Phsychiatrists'
+        },
+        {
+            value: 'Cardiologist',
+            label: 'Cardiologist'
+        }
+      ]
+
+    role = [
+        {
+            value: 'Doctor',
+            label: 'Doctor'
+        },
+        {
+            value: 'Nurse',
+            label: 'Nurse'
+        },
+        {
+            value: 'Lab Assistant',
+            label: 'Lab Assistant'
+        }
+    ]
+
+    gender = [
+        {
+            value: 'Male',
+            label: 'Male'
+        },
+        {
+            value: 'Female',
+            label: 'Female'
+        }
+    ]
+
+    
+setSpecialization = (e) => {
+    this.setState({specializationFilter: e.target.value});
+    console.log(e.target.value);
+}
+
+setRole = (e) => {
+    this.setState({roleFilter: e.target.value});
+    console.log(e.target.value);
+}
+
+setGender = (e) => {
+    this.setState({genderFilter: e.target.value});
+    console.log(e.target.value);
+}
 
 componentDidMount(){
     axios.get("http://localhost:8070/staff/view")
@@ -27,9 +103,12 @@ componentDidMount(){
             })
         }
 
+        
+
     
         render() {
             console.log("ViewBody");
+            let staffCount = 0;
             return (
     
     
@@ -39,9 +118,41 @@ componentDidMount(){
                    
                     <h2 align="center"><b>Staff Report</b></h2>
                     
-                    {/*Count all raws of staff memmber table */}
-                    <h5 align="left"><b>Total number of Staff Members:{this.state.staff.length}</b></h5>
                     
+                    {/*Count all raws of staff memmber table */}
+                    <h5 align="left"><b>Total number of Staff Members:{staffCount === 0? this.state.staff.length : this.state.size}</b></h5>
+                    
+                    <div className="d-flex row alert alert-secondary p-2 my-4 justify-content-evenly">
+                        <div className="col">
+                        <label for="exampleFormControlInput1" class="form-label">Specialization</label>
+                        <select name="specialization" class="form-select form-select" placeholder='Specialization' onChange={this.setSpecialization}>
+                            <option value="">---</option>
+                            {this.specializations.map((option) => (
+                                <option value={option.value}>{option.label}</option>
+                            ))}
+                        </select>
+                        </div>
+                        <div className="col">
+                        <label for="exampleFormControlInput1" class="form-label">Role</label>
+                        <select name="specialization" class="form-select form-select" placeholder='Role' onChange={this.setRole}>
+                            <option value="">---</option>
+                            {this.role.map((option) => (
+                                <option value={option.value}>{option.label}</option>
+                            ))}
+                        </select>
+                        </div>
+                        <div className="col">
+                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                        <select name="specialization" class="form-select form-select" placeholder='Gender' onChange={this.setGender}>
+                            <option value="">---</option>
+                            {this.gender.map((option) => (
+                                <option value={option.value}>{option.label}</option>
+                            ))}
+                        </select>
+                        
+                        </div>
+                        
+                    </div>
                    
                    <hr style={{ width:1269}}></hr>
                     <table className="table table-striped" id="stable" style={{ marginTop: 20,marginLeft:3}}>
@@ -63,9 +174,18 @@ componentDidMount(){
                         </thead>
                         <tbody>
                             
-                            {this.state.staff.map(staffmem => (
+                            {this.state.staff.filter((val) => {
+                                console.log(this.state.specializationFilter);
+                                if (this.state.specializationFilter === '' && this.state.roleFilter === '' && this.state.genderFilter === '') {
+                                    return val;
+                                    staffCount++;
+                                  }
+                                   else if (val.specialization.toLowerCase().includes(this.state.specializationFilter.toLowerCase()) && val.role.toLowerCase().includes(this.state.roleFilter.toLowerCase()) && val.gender.includes(this.state.genderFilter)){
+                                    return val;
+                                    staffCount++;
+                                  }
+                            }).map(staffmem => (
                                 
-                               
     
                                 <tr>
                                     <td scope="row">{staffmem.firstName}</td>
