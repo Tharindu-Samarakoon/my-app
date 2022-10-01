@@ -40,6 +40,7 @@ import StaffDash from "./components/StaffDashboard_t"
 import Update from './components/UpdateStaff_t'
 import StaffReport from './components/StaffReport_t'
 import './staff_t.css';
+import StaffProfile from './components/StaffProfilePage';
 
 
 export default class App extends Component{
@@ -74,6 +75,7 @@ export default class App extends Component{
         {/* <Route path="/paymentreport" exact component ={ExamplePayment}></Route> */}
         {/*Staff*/}
         <Route path="/add" exactc component={AddStaff}/>
+        <Route path="/staffProfile" exactc component={StaffProfile}/>
         <Route path="/view" exact component={ViewStaff}/>
         <Route path="/staffdash" exactc component={StaffDash}/>
         <Route path="/update/:id" exact component={Update}/>
