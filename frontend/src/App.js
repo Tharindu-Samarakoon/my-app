@@ -21,7 +21,7 @@ import AddLab_c from './components/AddLab_c';
 import ViewLabs_c from './components/ViewLabs_c';
 import EditLab_c from './components/EditLab_c';
 import labDashboard from './components/LabDashboard';
-// import LabReport_c from './components/LabReport_c';
+import LabReport_c from './components/LabReport_c';
 import './lab_c.css';
 
 //Payment
@@ -66,7 +66,7 @@ export default class App extends Component{
       <Route path="/save" exact component={AddLab_c}/>
       <Route path="/editLab/:id" exact component={EditLab_c}/>
       <Route path="/labDashboard" exact component={labDashboard}/>
-      {/* <Route path="/PrintLabReport" exact component={LabReport_c}/>       */}
+      <Route path="/PrintLabReport" exact component={LabReport_c}/>
 
               {/* Payment Routes */}
         <Route path="/viewpayment" exact component ={paymentView_h}></Route>
