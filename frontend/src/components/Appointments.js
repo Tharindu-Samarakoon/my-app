@@ -17,7 +17,6 @@ class Appointments extends Component {
                 <div className="col" style={{marginLeft:'23px'}}  >
                     <Link to="/addAppointments" className="">                
                         <img src="/images_m/add.jpg" width="270" height="240" alt="Add New Appointments" />
-                        <button className="btn btn-info" style={{marginLeft:0 ,marginRight:'0',marginTop:10,width:'295x'}}><h4 > <b> Add New Appointments</b>  </h4></button>
                         <button className="btn btn-info" style={{marginLeft:0 ,marginRight:'0',marginTop:10,width:'295x'}}><h4 > <b> Add New Appointment</b>  </h4></button>
                     </Link>
                 </div>
