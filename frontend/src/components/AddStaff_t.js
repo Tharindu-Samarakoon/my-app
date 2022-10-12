@@ -39,7 +39,7 @@ export default function AddStaff(){
 
         if((nicError=="Invalid NIC")||(numError=="Invalid number")||(suberror=="Maximum length is 10 Charactors")||(subberror=="Maximum length is 20 Charactors")){
             alert("Invalid Data");//Error
-        }else if(role !== "Doctor" && specialization !== '') {
+        }else if(role !== "Doctor" && specialization !== '' && specialization !== 'General') {
             alert("Only Doctors can have a specialiazation")
         }else{
         
@@ -219,7 +219,7 @@ export default function AddStaff(){
 
                 <div class="mb-3 container">
                     <label for="ContactNumber" class="form-label"><b>Contact Number:</b></label>
-                    <input type="text" placeholder="Enter Contact Number  Eg:+94234567898" class="form-control" id="ContactNumber"
+                    <input type="text" placeholder="Enter Contact Number  Eg:0714567898" class="form-control" id="ContactNumber"
                     onChange= {(e)=>{setcontactNumber(e.target.value);
                     validateNumber(e.target.value.length,e.target.value);}}
                     value={contactNumber}required/> <p style={{color:"red"}}>{numError}</p>
@@ -310,7 +310,7 @@ export default function AddStaff(){
                     
 
                 <div class="mb-3 container">
-                <label for="specialization" class="form-label"><b>Specialization:</b></label>
+                <label for="specialization" class="form-label"><b>Specialization {'(For Doctors)'} :</b></label>
                 <br></br>
 
                         <select name="specialization" class="form-select" id="specialization"

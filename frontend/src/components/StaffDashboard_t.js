@@ -38,7 +38,7 @@ function StaffDash(props){
             </Link>
             </div> */}
             <div className="col" style={{marginLeft: 20, marginRight: 20}}>
-            <Link to="/add" className="addstaff" style={{textDecoration: 'none', color: 'black'}}>
+            <Link to="/view" className="viewstaff" style={{textDecoration: 'none', color: 'black'}}>
                 <div class="card text-center">
                 <img src="https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width={450} class="card-img-top" alt="..."/>
                 <div class="card-body">
@@ -56,7 +56,7 @@ function StaffDash(props){
             </div> */}
 
             <div className="col" style={{marginLeft: 20, marginRight: 20}}>
-            <Link to="/add" className="addstaff" style={{textDecoration: 'none', color: 'black'}}>
+            <Link to="/report" className="staffreport" style={{textDecoration: 'none', color: 'black'}}>
                 <div class="card text-center">
                 <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width={450} class="card-img-top" alt="..."/>
                 <div class="card-body">

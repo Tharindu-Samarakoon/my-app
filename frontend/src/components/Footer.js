@@ -70,7 +70,7 @@ function Footer(props) {
           <div className="col-auto">
             <br></br>
             <p>
-              Copyright 2022 © Life Care PVT LTD. All Rights Reserved.
+              Copyright 2022 © Multi Clinic PVT LTD. All Rights Reserved.
             </p>
             
           </div>
