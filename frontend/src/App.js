@@ -9,7 +9,7 @@ import Home from "./components/Home";
 import ViewAppointments from './components/ViewAppointments';
 import Appointments from './components/Appointments';
 import AddAppointments from './components/AddAppointments';
-//import ComponentToPrint, { Example } from './components/AppointmentsReport';
+import ComponentToPrint, { Example } from './components/AppointmentsReport';
 import UpdateAppointments from './components/UpdateAppointments'
 import './appointment.css'
 
@@ -58,7 +58,8 @@ export default class App extends Component{
         <Route path = "/Appointments" exactc component={Appointments}></Route>
         <Route path = "/addAppointments" exactc component={AddAppointments}></Route> 
         <Route path= "/updateAppointments/:id" exact component={UpdateAppointments}></Route>
-        {/*<Route path="/appointmentReport" exact component={Example }/>*/}
+        <Route path="/appointmentReport" exact component={Example }/>
+        
            {/*lab test */}
       <Route path="/labs" exact component={ViewLabs_c}/>
       <Route path="/save" exact component={AddLab_c}/>
