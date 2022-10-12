@@ -28,8 +28,8 @@ import './lab_c.css';
 import paymentView_h from "./components/paymentView_h";
 import paymentAdd_h from "./components/paymetAdd_h";
 import payment_h from "./components/payment_h";
-// import ExamplePayment from "./components/paymentReport";
-// import updatePayment from "./components/updatePayment";
+import ExamplePayment from "./components/paymentReport";
+import updatePayment from "./components/updatePayment";
 import './payment_h.css'
 
 
