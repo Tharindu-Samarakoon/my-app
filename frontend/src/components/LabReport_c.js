@@ -43,11 +43,11 @@ class LabReport_c extends React.Component {
         return(
           
             <div> 
-                <br></br><br></br>
+                <br></br>
                 <h1 align="center">Laboratory Tests Details Report</h1>
                 <br></br>
                 <br></br>
-                <table className="table table-striped">
+                <table style={{marginLeft:'0.5%',marginRight:'1%',}} className="table table-striped">
                     <thead>
                         <tr class="table-primary">
                             <th scope='col'>Patient Name</th>
@@ -56,8 +56,8 @@ class LabReport_c extends React.Component {
                             <th scope='col'>Age</th>
                             <th scope='col'>Gender</th>
                             <th scope='col'>Date</th>
-                            <th scope='col'>Laboratory Test</th>
-                            <th scope='col'>Laboratory No</th>
+                            <th scope='col'>Lab Test</th>
+                            <th scope='col'>Lab No</th>
                             <th scope='col'>Laboratory Technologist</th>
                             <th scope='col'>Status</th>
                             
@@ -74,7 +74,7 @@ class LabReport_c extends React.Component {
                                         </a>
                                     </td>
                                     <td>{labs.id} </td>
-                                    <td>{labs.contact}</td>
+                                    <td>0{labs.phone}</td>
                                     <td>{labs.age} </td>
                                     <td>{labs.gender} </td>
                                     <td>{labs.date.toString().substr(0 ,10)}</td>
@@ -88,9 +88,9 @@ class LabReport_c extends React.Component {
                 </table>
                 <br></br>
                 <br></br>
-                    <h5><u><b>  &nbsp; Number of tests for each lab test </b></u></h5>
+                    <h5 style={{marginLeft:'2%',marginRight:'2%',}}><b><u>Number of tests for each lab test </u></b></h5>
                 <br></br>
-                <table className="table table-striped" style={{backgroundColor:'#b9cded',width:'400px'}}>
+                <table className="table table-striped" style={{backgroundColor:'#b9cded',width:'400px',marginLeft:'2%',marginRight:'2%'}}>
                     <thead>
                         <tr>
                             <th>Lab Test Name</th>
@@ -122,7 +122,7 @@ class LabReport_c extends React.Component {
             </table>
 
             <br></br>
-                <h5 style={{ color: 'red' }}> &nbsp;Total number of Lab Tests: {this.state.labs.length}</h5>
+                <h5 style={{ color: 'red',marginLeft:'2%',marginRight:'2%'}}> &nbsp;Total number of Lab Tests: {this.state.labs.length}</h5>
             <br></br>
 
             </div>
@@ -138,7 +138,7 @@ class PrintPDF extends React.Component {
             <br></br>
             <br></br>
           <ReactToPrint
-            trigger={() => <button className='btn btn-primary' style={{marginLeft:'85%',marginTop:'5px'}}>Generate Report</button>}
+            trigger={() => <button className='btn btn-primary' style={{marginLeft:'85%',marginTop:'5px'}}><i class = "fas fa-file-download">&nbsp;&nbsp;&nbsp;</i>Generate Report</button>}
             content={() => this.componentRef}/>
           <LabReport_c ref={(el) => (this.componentRef = el)} />
         </div>

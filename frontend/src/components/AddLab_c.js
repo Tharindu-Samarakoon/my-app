@@ -185,7 +185,8 @@ export default class AddLab_c extends Component {
 
     render(){
         return(
-            <div  style={{backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",
+            <div  style={{
+            backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",
             backgroundSize:'cover',
             height:'1300px',
             backgroundRepeat:'no-repeat', 
@@ -398,6 +399,7 @@ export default class AddLab_c extends Component {
                 </button>
                 &nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;
+                
                 <button className='btn btn-danger' type="submit" onClick ={(e)=>{
                      this.setState(
                         {
