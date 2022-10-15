@@ -53,6 +53,7 @@ handleSearchArea = (e) => {
 
 
 render(){
+
   return(
     <div >
 

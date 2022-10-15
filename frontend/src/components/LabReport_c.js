@@ -40,6 +40,10 @@ class LabReport_c extends React.Component {
     
 
     render(){
+        const tokenW = localStorage.getItem("user_id");
+        if(!tokenW){
+            window.location = '/'
+        }
         return(
           
             <div> 

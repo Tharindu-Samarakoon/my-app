@@ -41,6 +41,8 @@ import Update from './components/UpdateStaff_t'
 import StaffReport from './components/StaffReport_t'
 import './staff_t.css';
 import StaffProfile from './components/StaffProfilePage';
+import Login from './components/Login';
+import Register from './components/Register';
 
 
 export default class App extends Component{
@@ -53,6 +55,8 @@ export default class App extends Component{
         <br></br>
         <br></br> 
         <br></br>
+        <Route path="/" exact component={Login}></Route>
+        <Route path="/register" exact component={Register}></Route> 
     <Route path="/home" exact component={Home}></Route> 
       {/* Appointments */}
         <Route path = "/viewAppointments" exactc component={ViewAppointments}></Route>  
@@ -72,8 +76,8 @@ export default class App extends Component{
         <Route path="/viewpayment" exact component ={paymentView_h}></Route>
         <Route path="/payadd" exact component ={paymentAdd_h}></Route>
         <Route path="/payment" exact component ={payment_h}></Route>
-        {<Route path="/payUpdate/:id" exact component={updatePayment}></Route>}
-        {<Route path="/paymentreport" exact component ={ExamplePayment}></Route>}
+        <Route path="/payUpdate/:id" exact component={updatePayment}></Route>
+        <Route path="/paymentreport" exact component ={ExamplePayment}></Route>
         {/*Staff*/}
         <Route path="/add" exactc component={AddStaff}/>
         <Route path="/staffProfile" exactc component={StaffProfile}/>

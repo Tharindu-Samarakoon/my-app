@@ -53,3 +53,7 @@ app.use(paymentRoutes);
 const staffRouter = require("./routes/staffmembers_t");
 //import staff middleware
 app.use("/staff",staffRouter);
+
+const loginRouter = require("./routes/login")
+
+app.use("/auth", loginRouter);

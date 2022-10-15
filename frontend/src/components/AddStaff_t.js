@@ -37,6 +37,7 @@ export default function AddStaff(){
     function sendData(e){
         e.preventDefault();
 
+
         if((nicError=="Invalid NIC")||(numError=="Invalid number")||(suberror=="Maximum length is 10 Charactors")||(subberror=="Maximum length is 20 Charactors")){
             alert("Invalid Data");//Error
         }else if(role !== "Doctor" && specialization !== '' && specialization !== 'General') {

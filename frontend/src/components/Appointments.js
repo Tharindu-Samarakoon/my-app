@@ -5,6 +5,7 @@ import '../Home.css'
 class Appointments extends Component {
 
   render() {
+
     return ( 
         <div className="container">
         
