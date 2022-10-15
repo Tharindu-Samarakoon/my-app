@@ -41,6 +41,7 @@ import Update from './components/UpdateStaff_t'
 import StaffReport from './components/StaffReport_t'
 import './staff_t.css';
 import StaffProfile from './components/StaffProfilePage';
+import Login from './components/Login';
 
 
 export default class App extends Component{
@@ -53,6 +54,7 @@ export default class App extends Component{
         <br></br>
         <br></br> 
         <br></br>
+        <Route path="/" exact component={Login}></Route> 
     <Route path="/home" exact component={Home}></Route> 
       {/* Appointments */}
         <Route path = "/viewAppointments" exactc component={ViewAppointments}></Route>  
