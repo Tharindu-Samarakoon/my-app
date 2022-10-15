@@ -76,8 +76,8 @@ export default class App extends Component{
         <Route path="/viewpayment" exact component ={paymentView_h}></Route>
         <Route path="/payadd" exact component ={paymentAdd_h}></Route>
         <Route path="/payment" exact component ={payment_h}></Route>
-        {<Route path="/payUpdate/:id" exact component={updatePayment}></Route>}
-        {<Route path="/paymentreport" exact component ={ExamplePayment}></Route>}
+        <Route path="/payUpdate/:id" exact component={updatePayment}></Route>
+        <Route path="/paymentreport" exact component ={ComponentToPrint}></Route>
         {/*Staff*/}
         <Route path="/add" exactc component={AddStaff}/>
         <Route path="/staffProfile" exactc component={StaffProfile}/>
