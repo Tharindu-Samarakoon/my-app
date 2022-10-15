@@ -10,7 +10,7 @@ export default class EditLab_c extends Component {
         this.state={
             name:"",
             id:"",
-            contact:"",
+            phone:"",
             age:"",
             gender:"",
             date:"",
@@ -20,8 +20,13 @@ export default class EditLab_c extends Component {
             status:"",
             nameError:"",
             idError:"",
+            phoneError:"",
+            ageError:"",
             dateError:"",
-            labTestError:""
+            labTestError:"",
+            labNoError:"",
+            technologistError:"",
+            statusError:""
 
         }
 
@@ -51,9 +56,13 @@ export default class EditLab_c extends Component {
 
         let nameError="";
         let idError="";
-        let contactError="";
+        let phoneError="";
+        let ageError="";
         let dateError="";
         let labTestError="";
+        let labNoError="";
+        let technologistError="";
+        let statusError="";
   
         if(!this.state.name){
           nameError = 'Please Fill the name field'
@@ -61,11 +70,16 @@ export default class EditLab_c extends Component {
 
         if(!this.state.id){
             idError = 'Please Fill the id field '
-          }
+        }
+        
+        var phone= /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        if(!this.state.phone.match(phone)){
+            phoneError='Phone Number is Required and Fill Correct Number Format';
+        }
 
-          if(!this.state.contact){
-            idError = 'Please Fill the contact field '
-          }
+        if(!this.state.age){
+            ageError = 'Please Fill the age field'
+        }
 
         if(!this.state.date){
             dateError = 'Please Fill the date field '
@@ -74,13 +88,26 @@ export default class EditLab_c extends Component {
         if(!this.state.labTest){
             labTestError = 'Please Fill the test field '
           }
+        
+        if(!this.state.labNo){
+            labNoError = 'Please Fill the lab no field'
+        }
 
-        if(nameError||idError||contactError||dateError||labTestError){
-            this.setState({nameError,idError,contactError,dateError,labTestError});
+        if(!this.state.technologist){
+            technologistError = 'Please fill the technologist field'
+        }
+
+        if(!this.state.status){
+            statusError = 'Please select the status'
+        }
+
+
+        if(nameError||idError||phoneError||ageError|| dateError||labTestError||labNoError||technologistError||statusError){
+            this.setState({nameError,idError,phoneError,ageError,dateError,labTestError,labNoError,technologistError,statusError});
             return false;
           }
-          
 
+          
         return true;
 
         };
@@ -91,14 +118,14 @@ export default class EditLab_c extends Component {
         e.preventDefault();
         const isValid = this.validate();
 
-        const{name,id1,contact,age,gender,date,labTest,labNo,technologist,status} = this.state;
+        const{name,id1,phone,age,gender,date,labTest,labNo,technologist,status} = this.state;
 
         const id = this.props.match.params.id;
 
         const data = {
             name:name,
             id:id1,
-            contact:contact,
+            phone:phone,
             age:age,
             gender:gender,
             date:date,
@@ -121,7 +148,7 @@ export default class EditLab_c extends Component {
                     {
                         name:"",
                         id:"",
-                        contact:"",
+                        phone:"",
                         age:"",
                         gender:"",
                         date:"",
@@ -131,8 +158,13 @@ export default class EditLab_c extends Component {
                         status:"",
                         nameError:"",
                         idError:"",
+                        phoneError:"",
+                        ageError:"",
                         dateError:"",
-                        labTestError:""
+                        labTestError:"",
+                        labNoError:"",
+                        technologistError:"",
+                        statusError:""
 
                     }
                 )
@@ -153,7 +185,7 @@ export default class EditLab_c extends Component {
                 this.setState({
                     name:res.data.lab.name,
                     id:res.data.lab.id,
-                    contact:res.data.lab.contact,
+                    phone:res.data.lab.phone,
                     age:res.data.lab.age,
                     gender:res.data.lab.gender,
                     date:res.data.lab.date.toString().substr(0 ,10),
@@ -190,11 +222,21 @@ export default class EditLab_c extends Component {
 
     render() {
         return(
-            <div  style={{backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",backgroundSize:'cover',height:'1300px',backgroundRepeat:'no-repeat', backgroundSize:'cover',backgroundPosition:'center',backgroundAttachment:'fixed'}} >
+            <div  style={{
+            backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",
+            backgroundSize:'cover',
+            height:'1300px',
+            backgroundRepeat:'no-repeat', 
+            backgroundSize:'cover',
+            backgroundPosition:'center',
+            backgroundAttachment:'fixed'
+            }} >
+
             <div>
             <br></br>
             <Link to="/labs" className="results">
-            <button className="btn btn-primary" style={{marginLeft:890,marginBottom:20}}>View All Lab Tests</button> 
+            <button className="btn btn-primary" style={{marginLeft:890,marginBottom:20}}>
+            <i class="fas fa-list"></i>&nbsp;View All Lab Tests</button> 
             </Link>
             
             <div className='container' align='center'>
@@ -202,8 +244,9 @@ export default class EditLab_c extends Component {
                 <div className='form-group' style={{marginBottom:'15px'}}>
                 <h1 className='h3 mb-3 font-weight-normal'style={{textAlign:"center"}}>Update Laboratory Test</h1>
                 <hr></hr>
-                <br></br>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient Name </label><label style={{color:"red"}}> &nbsp;* </label>
+                {/* <br></br> */}
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient Name </label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="text"
                         className="form-control"
                         name="name"
@@ -216,9 +259,10 @@ export default class EditLab_c extends Component {
                            {this.state.nameError}
                     </div>
                 </div>
-                <br></br>
+                {/* <br></br> */}
                 <div className='form-group' style={{marginBottom:'15px'}}>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient ID</label> <label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Patient ID</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="number"
                         className="form-control"
                         name="id"
@@ -232,26 +276,27 @@ export default class EditLab_c extends Component {
                     </div>
                 </div>
 
-                <br></br>
+                {/* <br></br> */}
 
-                <div className='form-group' style={{marginBottom:'10px'}}>
-                    <label style={{marginBottom:'2px',fontWeight: 'bold'}}>Contact Number</label> <label style={{color:"red"}}> &nbsp;* </label>
-                    <input type="number"
+                <div className='form-group' style={{marginBottom:'15px'}}>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Phone</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
+                    <input type="text"
                     className="form-control"
-                    name="contact"
-                    placeholder="Eg: 077 4204204"
-                    value={this.state.id}
+                    name="phone"
+                    placeholder="Enter Phone Number (Eg: 076 9898948) "
+                    value={this.state.phone}
                     onChange={this.handleInputChange}
                     required/>
 
                     <div style={{fontSize:12 ,color:"red"}}>       
-                           {this.state.idError}
+                           {this.state.phoneError}
                     </div>
                 </div>
-                <br></br>
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Age</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="number"
                         className="form-control"
                         name="age"
@@ -259,24 +304,31 @@ export default class EditLab_c extends Component {
                         value={this.state.age}
                         onChange={this.handleInputChange}
                         required/>
+
+                    <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.ageError}
+                    </div>
+                        
                 </div>
 
-                <br></br>
+                {/* <br></br> */}
 
                 <div className='form-group' style={{marginBottom:'15px'}}
                     value={this.state.gender}
                     onChange={this.handleInputChange}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Gender</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <br></br>
                     <input type="radio" value='Male' name="gender" checked={this.state.gender==='Male'}/> Male &nbsp;  &nbsp;
                     <input type="radio" value='Female' name="gender" checked={this.state.gender==='Female'}/> Female
                 
                 </div>
 
-                <br></br>
+                {/* <br></br> */}
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Date</label> <label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Date</label> 
+                    <label style={{color:"red"}}> &nbsp;* </label>
                     <input type="date"
                         className="form-control"
                         name="date"
@@ -291,10 +343,11 @@ export default class EditLab_c extends Component {
                     </div>
                 </div>
 
-                <br></br>
+                {/* <br></br> */}
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
-                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Test</label> <label style={{color:"red"}}> &nbsp;* </label>
+                    <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Test</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                         <select class="form-select" name="labTest"
                             placeholder=" Select   "
                             value={this.state.labTest}
@@ -319,6 +372,7 @@ export default class EditLab_c extends Component {
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory No</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                         <select class="form-select" name="labNo"
                             placeholder=" Select   "
                             value={this.state.labNo}
@@ -330,12 +384,18 @@ export default class EditLab_c extends Component {
                                 <option> 4 </option>
 
                         </select>
+
+                        <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.labNoError}
+                    </div>
+                    
                 </div>
 
                 <br></br>
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Laboratory Technologist</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                         <select class="form-select" 
                             placeholder=" Select   "
                             name="technologist"
@@ -348,12 +408,18 @@ export default class EditLab_c extends Component {
                                 <option> Mr. Dammika Siriwardana </option>
 
                         </select>
+
+                        <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.technologistError}
+                    </div>
+                    
                 </div>
 
                 <br></br>
 
                 <div className='form-group' style={{marginBottom:'15px'}}>
                     <label style={{marginBottom:'5px',fontWeight: 'bold'}}>Status</label>
+                    <label style={{color:"red"}}> &nbsp;* </label>
                         <select class="form-select" 
                             placeholder=" Select   "
                             name="status"
@@ -365,18 +431,28 @@ export default class EditLab_c extends Component {
                                 <option> Completed </option>
                    
                         </select>
+
+                        <div style={{fontSize:12 ,color:"red"}}>       
+                           {this.state.statusError}
+                    </div>
+                    
                 </div>
 
 
-                <button className='btn btn-success' type="submit" style={{marginTop:'25px',marginLeft:'150px',height: '50px', width : '100px'}} onClick={this.onSubmit}>
-                &nbsp;Update
+                <center>
+                <button className='btn btn-success' type="submit" style={{marginTop:'25px',height: '50px', width : '120px'}} onClick={this.onSubmit}>
+                &nbsp;<i class="fas fa-edit"></i> &nbsp;Update
                 </button>
+                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+
                
                 <Link to="/labs" className="results">
-                <button className='btn btn-danger' type="submit" style={{marginTop:'25px',marginLeft:'120px',height: '50px', width : '100px'}} onClick={this.handleClick}>
-                &nbsp;Cancel
+                <button className='btn btn-danger' type="submit" style={{marginTop:'25px',height: '50px', width : '100px'}} onClick={this.handleClick}>
+                &nbsp;<i class="fas fa-close"></i>&nbsp;Cancel
                 </button>
                 </Link>
+                </center>
                 
             </form>
             </div>
