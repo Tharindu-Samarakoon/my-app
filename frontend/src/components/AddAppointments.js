@@ -21,6 +21,8 @@ export default function AddAppointments  ()  {
 
     const textInput = React.useRef();
 
+
+
     const clearInput = () => (textInput.current.value = "");
        
     function sendData(e){

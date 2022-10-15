@@ -5,6 +5,10 @@ import { Link,useParams } from 'react-router-dom';
 class labDashboard extends Component {
   
   render() {
+    const tokenW = localStorage.getItem("user_id");
+        if(!tokenW){
+            window.location = '/'
+        }
     return (
     
     <div  style={{marginTop:"20px"}}>

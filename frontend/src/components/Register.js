@@ -17,16 +17,18 @@ export default class Register extends React.Component {
 
   register = () => {
 
-    axios.post('http://localhost:2000/register', {
+    axios.post('http://localhost:8070/auth/register', {
       username: this.state.username,
       password: this.state.password,
     }).then((res) => {
+      localStorage.setItem('user_id', res.data.data);
       swal({
         text: res.data.title,
         icon: "success",
         type: "success"
       });
-      this.props.history.push('/');
+      
+      this.props.history.push('/home');
     }).catch((err) => {
       swal({
         text: err.response.data.errorMessage,

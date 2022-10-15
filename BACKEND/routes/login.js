@@ -1,7 +1,8 @@
 const express = require('express');
-const labs = require('../models/lab_c');
-const router = require('./labs_c');
+const user = require('../models/user');
 const app = express.Router();
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt');
 
 
 
@@ -39,48 +40,89 @@ app.get("/", (req, res) => {
 });
 
 /* login api */
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
+  // try {
+  //   if (req.body && req.body.username && req.body.password) {
+  //     user.find({ username: req.body.username }, (err, data) => {
+  //       if (data.length > 0) {
+
+  //         if (bcrypt.compare(req.body.password, data.password).then((req, data) => {
+  //           res.status(200).json({
+  //             errorMessage: 'Successfully logged in',
+  //             status: true,
+  //             data: data._id
+  //           })
+  //         })) {
+            
+  //         } else {
+
+  //           res.status(400).json({
+  //             errorMessage: 'Username or password is incorrect!',
+  //             status: false
+  //           });
+  //         }
+
+  //       } else {
+  //         res.status(400).json({
+  //           errorMessage: 'Username or password is incorrect!',
+  //           status: false
+  //         });
+  //       }
+  //     })
+  //   } else {
+  //     res.status(400).json({
+  //       errorMessage: 'Add proper parameter first!',
+  //       status: false
+  //     });
+  //   }
+  // } catch (e) {
+  //   res.status(400).json({
+  //     errorMessage: 'Something went wrong!',
+  //     status: false
+  //   });
+  // }
+
+  const {username, password} = req.body;
   try {
-    if (req.body && req.body.username && req.body.password) {
-      user.find({ username: req.body.username }, (err, data) => {
-        if (data.length > 0) {
+    if(password && username){
+      const vUser = await user.findOne({username});
+      if(!vUser){
+        res.status(400).json({
+          status: false,
+          title: "Incorrect username or password"
+        });
+      }
 
-          if (bcrypt.compareSync(data[0].password, req.body.password)) {
-            checkUserAndGenerateToken(data[0], req, res);
-          } else {
+      console.log(vUser);
+      console.log(password);
+      const pssComp = await bcrypt.compare(password, vUser.password);
 
-            res.status(400).json({
-              errorMessage: 'Username or password is incorrect!',
-              status: false
-            });
-          }
+      if(pssComp){
+        res.status(200).json({
+          status: true,
+          title: 'logged in Successfully.',
+          data: vUser._id
+        });
+      }
 
-        } else {
-          res.status(400).json({
-            errorMessage: 'Username or password is incorrect!',
-            status: false
-          });
-        }
-      })
-    } else {
-      res.status(400).json({
-        errorMessage: 'Add proper parameter first!',
-        status: false
-      });
     }
-  } catch (e) {
+  } catch (error) {
     res.status(400).json({
-      errorMessage: 'Something went wrong!',
-      status: false
+      status: false,
+      title: error.message
     });
   }
 
 });
 
 /* register api */
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
   try {
     if (req.body && req.body.username && req.body.password) {
+      
+      const salt = await bcrypt.genSalt(10);
+      const hashPass = await bcrypt.hash(req.body.password, salt);
+
 
       user.find({ username: req.body.username }, (err, data) => {
 
@@ -88,7 +130,7 @@ app.post("/register", (req, res) => {
 
           let User = new user({
             username: req.body.username,
-            password: req.body.password
+            password: hashPass
           });
           User.save((err, data) => {
             if (err) {
@@ -99,7 +141,8 @@ app.post("/register", (req, res) => {
             } else {
               res.status(200).json({
                 status: true,
-                title: 'Registered Successfully.'
+                title: 'Registered Successfully.',
+                data: data._id
               });
             }
           });
@@ -121,7 +164,7 @@ app.post("/register", (req, res) => {
     }
   } catch (e) {
     res.status(400).json({
-      errorMessage: 'Something went wrong!',
+      errorMessage: e.message,
       status: false
     });
   }
@@ -144,4 +187,4 @@ function checkUserAndGenerateToken(data, req, res) {
   });
 }
 
-module.exports = router;
+module.exports = app;

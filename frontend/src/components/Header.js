@@ -3,9 +3,25 @@ import React, { Component } from "react";
 
 
 class Header extends Component {
-  
+
+
     
   render() {
+
+    const loc = window.location;
+    console.log(loc.pathname);
+
+    const tokenW = localStorage.getItem("user_id");
+        if(!tokenW && loc.pathname != "/"){
+            window.location = '/'
+        }
+
+    const logout = () => {
+        localStorage.clear();
+        window.location = '/'
+    }
+
+    const token = localStorage.getItem("user_id");
     return ( 
     <div>
         
@@ -23,12 +39,22 @@ class Header extends Component {
             
 
         </div>
+        {!token? (
+        //     <div className="row me-3">
+        //     <div className="col d-flex justify-content-end">
+        //     <i class="fa fa-user fa-2x" aria-hidden="true" style={{color: 'white'}}> </i> &nbsp;&nbsp;&nbsp;
+        //     <button type="button" class="btn btn-light" style={{marginBottom:20}}> Login </button>
+        //     </div>
+        // </div>
+        ''
+        ): (
         <div className="row me-3">
-            <div className="col d-flex justify-content-end">
-            <i class="fa fa-user fa-2x" aria-hidden="true" style={{color: 'white'}}> </i> &nbsp;&nbsp;&nbsp;
-            <button type="button" class="btn btn-light" style={{marginBottom:20}}> Login </button>
-            </div>
-        </div>
+             <div className="col d-flex justify-content-end">
+             <i class="fa fa-user fa-2x" aria-hidden="true" style={{color: 'white'}}> </i> &nbsp;&nbsp;&nbsp;
+             <button type="button" class="btn btn-light" style={{marginBottom:20}} onClick = {logout} > Logout </button>
+             </div>
+         </div>
+        )}
 
      
         </header>

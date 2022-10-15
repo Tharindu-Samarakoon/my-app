@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import swal from 'sweetalert';
 import { Button, TextField, Link } from '@material-ui/core';
 const axios = require('axios');
-const bcrypt = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
+// const bcrypt = require('bcrypt');
+// var salt = bcrypt.genSaltSync(10);
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -18,15 +18,14 @@ export default class Login extends React.Component {
 
   login = () => {
 
-    const pwd = bcrypt.hashSync(this.state.password, salt);
+    // const pwd = bcrypt.hashSync(this.state.password, salt);
 
-    axios.post('http://localhost:2000/login', {
+    axios.post('http://localhost:8070/auth/login', {
       username: this.state.username,
-      password: pwd,
+      password: this.state.password,
     }).then((res) => {
       console.log(res);
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('user_id', res.data.id);
+      localStorage.setItem('user_id', res.data.data);
       this.props.history.push('/home');
     }).catch((err) => {
       console.log(err);
