@@ -40,14 +40,7 @@ class Header extends Component {
             
 
         </div>
-        {!token? (
-        //     <div className="row me-3">
-        //     <div className="col d-flex justify-content-end">
-        //     <i class="fa fa-user fa-2x" aria-hidden="true" style={{color: 'white'}}> </i> &nbsp;&nbsp;&nbsp;
-        //     <button type="button" class="btn btn-light" style={{marginBottom:20}}> Login </button>
-        //     </div>
-        // </div>
-        ''
+        {!token? ( ''
         ): (
         <div className="row me-3">
              <div className="col d-flex justify-content-end">
