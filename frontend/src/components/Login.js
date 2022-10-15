@@ -79,9 +79,9 @@ export default class Login extends React.Component {
           >
             Login
           </Button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Link href="/register">
+          {/* <Link href="/register">
             Register
-          </Link>
+          </Link> */}
         </div>
       </div>
     );

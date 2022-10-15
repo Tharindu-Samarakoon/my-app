@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 class Header extends Component {
 
+    //AdminUser, Admin1234
 
     
   render() {
@@ -12,7 +13,7 @@ class Header extends Component {
     console.log(loc.pathname);
 
     const tokenW = localStorage.getItem("user_id");
-        if(!tokenW && loc.pathname != "/"){
+        if(!tokenW && (loc.pathname != "/" && loc.pathname != "/register")){
             window.location = '/'
         }
 
