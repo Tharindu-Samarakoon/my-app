@@ -221,6 +221,8 @@ export default class EditLab_c extends Component {
 
 
     render() {
+        const tokenW = localStorage.getItem("user_id");
+
         return(
             <div  style={{
             backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",

@@ -9,7 +9,7 @@ import Home from "./components/Home";
 import ViewAppointments from './components/ViewAppointments';
 import Appointments from './components/Appointments';
 import AddAppointments from './components/AddAppointments';
-//import ComponentToPrint, { Example } from './components/AppointmentsReport';
+import ComponentToPrint, { Example } from './components/AppointmentsReport';
 import UpdateAppointments from './components/UpdateAppointments'
 import './appointment.css'
 
@@ -28,8 +28,8 @@ import './lab_c.css';
 import paymentView_h from "./components/paymentView_h";
 import paymentAdd_h from "./components/paymetAdd_h";
 import payment_h from "./components/payment_h";
-// import ExamplePayment from "./components/paymentReport";
-// import updatePayment from "./components/updatePayment";
+import ExamplePayment from "./components/paymentReport";
+import updatePayment from "./components/updatePayment";
 import './payment_h.css'
 
 
@@ -41,6 +41,8 @@ import Update from './components/UpdateStaff_t'
 import StaffReport from './components/StaffReport_t'
 import './staff_t.css';
 import StaffProfile from './components/StaffProfilePage';
+import Login from './components/Login';
+import Register from './components/Register';
 
 
 export default class App extends Component{
@@ -53,15 +55,17 @@ export default class App extends Component{
         <br></br>
         <br></br> 
         <br></br>
+        <Route path="/" exact component={Login}></Route>
+        <Route path="/register" exact component={Register}></Route> 
     <Route path="/home" exact component={Home}></Route> 
       {/* Appointments */}
         <Route path = "/viewAppointments" exactc component={ViewAppointments}></Route>  
         <Route path = "/Appointments" exactc component={Appointments}></Route>
         <Route path = "/addAppointments" exactc component={AddAppointments}></Route> 
         <Route path= "/updateAppointments/:id" exact component={UpdateAppointments}></Route>
-        {/*<Route path="/appointmentReport" exact component={Example }/>*/}
-
-      {/*lab test */}
+        <Route path="/appointmentReport" exact component={Example }/>
+        
+           {/*lab test */}
       <Route path="/labs" exact component={ViewLabs_c}/>
       <Route path="/save" exact component={AddLab_c}/>
       <Route path="/editLab/:id" exact component={EditLab_c}/>
@@ -72,8 +76,8 @@ export default class App extends Component{
         <Route path="/viewpayment" exact component ={paymentView_h}></Route>
         <Route path="/payadd" exact component ={paymentAdd_h}></Route>
         <Route path="/payment" exact component ={payment_h}></Route>
-        {/* <Route path="/payUpdate/:id" exact component={updatePayment}></Route> */}
-        {/* <Route path="/paymentreport" exact component ={ExamplePayment}></Route> */}
+        <Route path="/payUpdate/:id" exact component={updatePayment}></Route>
+        <Route path="/paymentreport" exact component ={ExamplePayment}></Route>
         {/*Staff*/}
         <Route path="/add" exactc component={AddStaff}/>
         <Route path="/staffProfile" exactc component={StaffProfile}/>

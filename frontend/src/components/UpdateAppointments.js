@@ -249,9 +249,12 @@ render(){
                 <br></br>
                 <br></br>
 
-                <button className="btn btn-primary" type="submit" style={{marginLeft:'20%',width:'100px',height:'45px'}} onClick={this.onSubmit}>
-                    Update
-                </button>
+
+                <Link to="/viewAppointments" className="">
+                    <button className="btn btn-primary" type="submit" style={{marginLeft:'20%',width:'100px',height:'45px'}} onClick={this.onSubmit }>
+                        Update
+                    </button>
+                </Link>
 
                 <Link to="/viewAppointments" className="">    
                     <button className="btn btn-danger" type="submit" style={{marginLeft:'22%',width:'100px',height:'45px'}} onClick={this.handleClick}  >

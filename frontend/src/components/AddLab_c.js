@@ -184,6 +184,7 @@ export default class AddLab_c extends Component {
    }
 
     render(){
+        
         return(
             <div  style={{
             backgroundImage:"url(http://localhost:3000/labImage/bglab1.jpg)",
