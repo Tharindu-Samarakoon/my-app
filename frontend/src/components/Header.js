@@ -3,9 +3,26 @@ import React, { Component } from "react";
 
 
 class Header extends Component {
-  
+
+    //AdminUser, Admin1234
+
     
   render() {
+
+    const loc = window.location;
+    console.log(loc.pathname);
+
+    const tokenW = localStorage.getItem("user_id");
+        if(!tokenW && (loc.pathname != "/" && loc.pathname != "/register")){
+            window.location = '/'
+        }
+
+    const logout = () => {
+        localStorage.clear();
+        window.location = '/'
+    }
+
+    const token = localStorage.getItem("user_id");
     return ( 
     <div>
         
@@ -23,12 +40,15 @@ class Header extends Component {
             
 
         </div>
+        {!token? ( ''
+        ): (
         <div className="row me-3">
-            <div className="col d-flex justify-content-end">
-            <i class="fa fa-user fa-2x" aria-hidden="true" style={{color: 'white'}}> </i> &nbsp;&nbsp;&nbsp;
-            <button type="button" class="btn btn-light" style={{marginBottom:20}}> Login </button>
-            </div>
-        </div>
+             <div className="col d-flex justify-content-end">
+             <i class="fa fa-user fa-2x" aria-hidden="true" style={{color: 'white'}}> </i> &nbsp;&nbsp;&nbsp;
+             <button type="button" class="btn btn-light" style={{marginBottom:20}} onClick = {logout} > Logout </button>
+             </div>
+         </div>
+        )}
 
      
         </header>
@@ -45,12 +65,12 @@ class Header extends Component {
                        <a class="nav-link active" href="/home" style={{marginLeft:50}}><b>Home</b></a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" href="/Appointments"> <b>Appointments</b> </a>
+                           <a class="nav-link active" href="/Appointments"> <b>Appointments</b> </a>
                        </li>
 
 
                        <li class="nav-item">
-                           <a class="nav-link" href="/labDashboard">
+                           <a class="nav-link active" href="/labDashboard">
                           <b> Lab Tests</b></a>
                           
                        </li>
@@ -58,13 +78,13 @@ class Header extends Component {
 
 
                        <li class="nav-item">
-                                   <a class="nav-link" href="/payment">
+                                   <a class="nav-link active" href="/payment">
                                       <b> Payment </b>
                                    </a>
                                    </li>
                      
                        <li class="nav-item">
-                           <a class="nav-link" href="/staffdash"> <b>Staff</b> </a>
+                           <a class="nav-link active" href="/staffdash"> <b>Staff</b> </a>
                        </li>
                     
                       

@@ -59,6 +59,10 @@ export default class paymentView_h extends Component{
    }
 
   render(){
+    const tokenW = localStorage.getItem("user_id");
+        if(!tokenW){
+            window.location = '/'
+        }
      return(
          <div>
              <h1 style={{textAlign:"center" ,marginBottom:40}}> <b>Payment Details</b> </h1>
