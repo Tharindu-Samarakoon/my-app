@@ -103,6 +103,8 @@ app.post("/login", async (req, res) => {
           title: 'logged in Successfully.',
           data: vUser._id
         });
+      }else {
+        res.status(404).json({status: false, title: "Incorrect username or password"})
       }
 
     }
